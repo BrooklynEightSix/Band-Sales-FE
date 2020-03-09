@@ -25,6 +25,7 @@ const startServer = async () => {
     app.use('/api/venue', require('./api/venue'))
     app.use('/api/album', require('./api/album'))
     app.use('/api/merch', require('./api/merch'))
+    app.use('/api/sale', require('./api/sale'))
     app.listen(4000, () =>
       console.log(`Example app listening on port 4000!`),
     );

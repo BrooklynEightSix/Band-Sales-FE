@@ -5,6 +5,10 @@ const BandSchema = mongoose.Schema({
     type: String,
     required: true
   },
+  playing: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'venue'
+  }
   // venueID: [
   //   {
   //     type: mongoose.Schema.Types.ObjectId,

@@ -6,10 +6,6 @@ const MerchSchema = mongoose.Schema({
     enum: ['Clothing', 'CD', 'Cassettes', 'Vinyls'],
     required: true
   },
-  venueId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'venue'
-  },
   bandId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'band'

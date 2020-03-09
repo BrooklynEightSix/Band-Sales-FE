@@ -5,11 +5,10 @@ const Merch = require('../models/Merch')
 
 router.post('/', async (req, res) => {
   try {
-    const { price, type, venueId, bandId } = req.body
+    const { price, type, bandId } = req.body
     let merch = new Merch({
       type,
       price,
-      venueId,
       bandId
     })
     await merch.save()
