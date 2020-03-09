@@ -21,18 +21,29 @@ router.post('/', async (req, res) => {
   }
 })
 
-router.get('/:bandId/:venudId', async (req, res) => {
+router.get('/:bandId/:venueId', async (req, res) => {
   try {
-    // console.log(req.params)
-    const { bandId, venueId } = req.params
-
-    const sale = await Sale.find({ bandId })
-      .populate('venueId')
-      .populate('bandId')
+    const { bandId, venueId} = req.params
+    
+    const sale = await Sale.find({ bandId, venueId })
       .populate('merchId')
-    // await sale.populate('bandId')
+      .populate({
+        path: 'merchId',
+        model: 'merch',
+        populate: {
+            path: 'albumId',
+            model: 'album'           
+        }
+    })
+    const result = sale.map(item=>({
+      albumTitle: item.merchId.albumId.title,
+      albumInfo: item.merchId.albumId.info,
+      quantity: item.quantity,
+      type:item.merchId.type,
+      price:Number(item.merchId.price)
+    }))
 
-    res.send(sale)
+    res.send(result)
   } catch (error) {
     console.log(error.message)
     res.status(500).send('Server error')

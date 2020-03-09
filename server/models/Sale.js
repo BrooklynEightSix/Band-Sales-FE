@@ -23,7 +23,12 @@ const SaleSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'venue',
     required: true
-  }
+  },
+  // albumId: {
+  //   type: mongoose.Schema.Types.ObjectId,
+  //   ref: 'album',
+  //   required: true
+  // }
 })
 const Sale = mongoose.model('sale', SaleSchema)
 module.exports = Sale

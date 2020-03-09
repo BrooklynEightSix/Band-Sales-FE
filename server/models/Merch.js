@@ -13,7 +13,11 @@ const MerchSchema = mongoose.Schema({
   price: {
     type:  mongoose.Decimal128,
     required: true
-  }
+  },
+  albumId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'album'
+  },
 })
 const Merch = mongoose.model('merch', MerchSchema)
 module.exports = Merch

@@ -5,12 +5,13 @@ const Merch = require('../models/Merch')
 
 router.post('/', async (req, res) => {
   try {
-    const { price, type, bandId } = req.body
+    const { price, type, bandId, albumId } = req.body
     let merch = new Merch({
       type,
       price,
-      bandId
-    })
+      bandId,
+      albumId
+    })  
     await merch.save()
     res.send('Merch created...')
   } catch (error) {
