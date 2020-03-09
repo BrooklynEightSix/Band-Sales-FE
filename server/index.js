@@ -20,6 +20,7 @@ const startServer = async () => {
         useCreateIndex: true,
       }
     );
+
     app.use(express.json({extended:false}))
     app.use('/api/band', require('./api/band'))
     app.use('/api/venue', require('./api/venue'))
