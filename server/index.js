@@ -20,11 +20,12 @@ const startServer = async () => {
         useCreateIndex: true,
       }
     );
+
     app.use(express.json({extended:false}))
-    app.use('/api/band', require('./api/band'))
-    app.use('/api/venue', require('./api/venue'))
-    app.use('/api/album', require('./api/album'))
-    app.use('/api/merch', require('./api/merch'))
+    // app.use('/api/band', require('./api/band'))
+    // app.use('/api/venue', require('./api/venue'))
+    // app.use('/api/album', require('./api/album'))
+    // app.use('/api/merch', require('./api/merch'))
     app.listen(4000, () =>
       console.log(`Example app listening on port 4000!`),
     );
